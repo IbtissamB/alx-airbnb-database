@@ -24,3 +24,16 @@ This table stores details about the listings available for booking.
 - Analyze Query Logs: Examine your database query logs to see which columns appear most frequently in WHERE, JOIN, and ORDER BY clauses.
 
 - Use Database Performance Monitoring Tools: Many database systems (PostgreSQL, MySQL, etc.) and cloud providers (AWS RDS, Google Cloud SQL) offer tools that track query performance and index usage.
+
+---
+
+### Steps to Measure Performance
+`EXPLAIN ANALYZE` in PostgreSQL, or `EXPLAIN EXTENDED` in MySQL/MariaDB
+  
+1. Select a Representative Query: 
+    `SELECT * FROM Bookings WHERE user_id = 123;`
+2. Measure BEFORE Indexing:
+    `EXPLAIN ANALYZE SELECT * FROM Bookings WHERE user_id = 123;`
+3. Create the Indexes:
+    Execute the `CREATE INDEX` commands
+4. Measure after Indexing
